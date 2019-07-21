@@ -14,7 +14,10 @@ export class HeaderComponent implements OnInit {
   constructor(private route:Router, private data: DataService) { }
 
   ngOnInit() { 
-    this.data.currentMessage.subscribe(message => this.ifLogged = message)
+    this.data.currentMessage.subscribe(message => {
+      this.ifLogged = message
+      this.ngOnInit
+    })
 
     if(sessionStorage.getItem('username')){
       console.log("logged in");

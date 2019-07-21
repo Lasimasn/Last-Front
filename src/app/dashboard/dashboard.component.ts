@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,9 +11,11 @@ export class DashboardComponent implements OnInit {
 
   public role;
 
-  constructor(private route:Router) { }
+  constructor(private route:Router, private data: DataService) { }
 
   ngOnInit() {
+
+    this.data.changeMessage("true");
 
     if(sessionStorage.getItem('role') == 'restaurant'){
       this.role = 'restaurant';
