@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { DonationService } from '../donation.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
+import { UpdateService } from '../update.service';
+import { DonationService } from '../donation.service';
 @Component({
   selector: 'app-delivery-boy-dash-board',
   templateUrl: './delivery-boy-dash-board.component.html',
@@ -14,9 +15,10 @@ export class DeliveryBoyDashBoardComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private service: DonationService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private updateService : UpdateService,
   ) { }
-  deliveryBoy: any[]
+  public deliveryBoy
   username: string
   deliveryRoute: any
   deliveryBoyLogs: any
@@ -28,7 +30,7 @@ export class DeliveryBoyDashBoardComponent implements OnInit {
   ngOnInit() {
     this.username = sessionStorage.getItem('username');
     console.log(this.username)
-    this.service.fetchDeliveryBoyProfile(this.username).subscribe(data => {
+    this.updateService.getDeliveryBoyProfile(this.username).subscribe(data => {
       console.log(data)
       this.deliveryBoy = data;
     })

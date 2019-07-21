@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DonationService } from '../donation.service';
 import { RestaurantActivity } from '../restaurant-activity';
-// import * as CanvasJS from '../../assets/js/canvasjs.min';
+import { UpdateService } from '../update.service';
+
 @Component({
   selector: 'app-restaurant-dashboard',
   templateUrl: './restaurant-dashboard.component.html',
@@ -9,7 +10,8 @@ import { RestaurantActivity } from '../restaurant-activity';
 })
 export class RestaurantDashboardComponent implements OnInit {
 
-  constructor(private service: DonationService) { }
+  constructor(private service: DonationService,private updateService : UpdateService) { }
+
   username: string;
   restaurant: any;
   restaurantLogs: any;
@@ -24,7 +26,7 @@ export class RestaurantDashboardComponent implements OnInit {
   ngOnInit() {
     this.username = sessionStorage.getItem('username');
     console.log(this.username)
-    this.service.fetchRestaurantProfile(this.username).subscribe(data => {
+    this.updateService.getRestaurantProfile(this.username).subscribe(data => {
       console.log(data)
       this.restaurant = data;
       console.log(this.restaurant);
@@ -35,8 +37,6 @@ export class RestaurantDashboardComponent implements OnInit {
       this.restaurantLogs = data;
     })
   }
-
-
 
   fetchStatus() {
     this.service.fetchRestaurantFoodStatus(this.username).subscribe(data => {

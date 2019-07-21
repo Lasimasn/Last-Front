@@ -11,15 +11,11 @@ import { SignupOuterComponent } from './signup-outer/signup-outer.component';
 import { HomeGraphComponent } from './home-graph/home-graph.component';
 import { RestaurantDashboardComponent } from './restaurant-dashboard/restaurant-dashboard.component';
 import { LoginComponent } from './login/login.component';
-import { FoodStatusComponent } from './food-status/food-status.component';
 import { CharityDashBoardComponent } from './charity-dash-board/charity-dash-board.component';
 import { DeliveryBoyDashBoardComponent } from './delivery-boy-dash-board/delivery-boy-dash-board.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from "@angular/forms";
-import { ResturantProfileComponent } from './resturant-profile/resturant-profile.component';
-import { CharityProfileComponent } from './charity-profile/charity-profile.component';
 import { AvailabilityformComponent } from './availabilityform/availabilityform.component';
-import { RestaurantprofileComponent } from './restaurantprofile/restaurantprofile.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
 
 import { LoginService } from './login.service';
@@ -41,15 +37,11 @@ import { RouteMapComponent } from './route-map/route-map.component';
     HomeGraphComponent,
     RestaurantDashboardComponent,
     LoginComponent,
-    FoodStatusComponent,
     CharityDashBoardComponent,
     DeliveryBoyDashBoardComponent,
-    ResturantProfileComponent,
-    CharityProfileComponent,
     SignupOuterComponent,
     DashboardComponent,
     AvailabilityformComponent,
-    RestaurantprofileComponent,
     ProfileEditableComponent,
     CharitySliderComponent,
     RestaurantSliderComponent,

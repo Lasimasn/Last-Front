@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as CanvasJS from '../../assets/js/canvasjs.min';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { UpdateService } from '../update.service';
 import { DonationService } from '../donation.service';
+
 import { Rating } from '../rating';
 
 @Component({
@@ -14,7 +16,8 @@ export class CharityDashBoardComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service : DonationService) { }
+    private updateService : UpdateService,
+    private donateService : DonationService) { }
 
     charity : any;
     username : string;
@@ -30,7 +33,7 @@ export class CharityDashBoardComponent implements OnInit {
     this.username = sessionStorage.getItem('username');
 
     console.log(this.username)
-    this.service.fetchCharityProfile(this.username).subscribe(data=>{
+    this.updateService.getCharityProfile(this.username).subscribe(data=>{
         console.log(data);
         this.charity=data;
         console.log("bashir ");
@@ -43,7 +46,7 @@ export class CharityDashBoardComponent implements OnInit {
 
       
     
-    this.service.fetchCharityLogs(this.username).subscribe(data=>{
+    this.donateService.fetchCharityLogs(this.username).subscribe(data=>{
       console.log(data)
       this.charityLogs=data; 
       console.log(this.charity)});
@@ -111,7 +114,7 @@ export class CharityDashBoardComponent implements OnInit {
 
 
   fetchStatus(){
-    this.service.fetchCharityFoodStatus(this.username).subscribe(data=>{
+    this.donateService.fetchCharityFoodStatus(this.username).subscribe(data=>{
       console.log(data)
       this.foodStatus=data;})
   }
@@ -120,7 +123,7 @@ export class CharityDashBoardComponent implements OnInit {
     this.rating.username = this.username;
     this.rating.logId = logId;
     this.rating.rating = ratedValue;
-    this.service.onRate(this.rating).subscribe(data=>{
+    this.donateService.onRate(this.rating).subscribe(data=>{
       console.log(data)})
   }
 
