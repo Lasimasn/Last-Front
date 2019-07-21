@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(private service:LoginService, private route:Router, private data: DataService) { }
 
   ngOnInit() {
+    this.data.changeMessage("login");
   }
   login(username, password){
     console.log(username,password);
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('token',data.token);
       sessionStorage.setItem('username',data.userDetails.username);
       sessionStorage.setItem('role',data.userDetails.role);
-      this.data.changeMessage(true);
+      this.data.changeMessage("true");
       this.route.navigateByUrl("/DashboardComponent");
       });
   }

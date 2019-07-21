@@ -1,39 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
-    <div class="container">
-
-        <div routerLink="/" class="m-2">
-          <img src="assets/img/logo-final.png" width="150px" height="50px">
-          </div>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-
-          <ul class="navbar-nav ml-auto">
-        <li class="nav-item" *ngIf="!ifLogged">
-          <button class="nav-link btn btn-warning font-weight-bold" (click)="login()"><i class="fa fa-sign-in-alt"></i>Login</button></li>
-        <li class="nav-item dropdown" *ngIf="ifLogged">
+  <div class="container">
+    <div routerLink="/" class="m-2">
+      <img src="assets/img/logo-final.png" width="150px" height="50px">
+    </div>
+      <ul class="navbar-nav ml-auto">
+        <div class="nav-item" *ngIf="ifLogged == 'false'">
+          <button class="nav-link btn btn-warning font-weight-bold" (click)="login()"><i class="fa fa-sign-in-alt"></i>Login</button>
+        </div>
+        <div class="nav-item dropdown" *ngIf="ifLogged == 'true'">
           <div class="nav-link dropdown-toggle text-white font-weight-bold" data-toggle="dropdown">
-            My Account
+          My Account
           </div>
           <div class="dropdown-menu">
-              <div class="dropdown-item" routerLink="/DashboardComponent">
-                My Dashboard
-              </div>
             <div class="dropdown-item" routerLink="/ProfileEditable">
-              View Profile
+            View Profile
+            </div>
+            <div class="dropdown-item" routerLink="/DashboardComponent">
+            My Dashboard
             </div>
             <div class="dropdown-item" (click)="logout()">
-              SignOut
+            SignOut
             </div>
-           </div>
-        </li>
-            
-          </ul>
-
-    </div>
-
-    </div>
-  </nav>
+          </div>
+        </div>
+      </ul>
+  </div>
+</nav>

@@ -18,12 +18,15 @@ export class HeaderComponent implements OnInit {
 
     if(sessionStorage.getItem('username')){
       console.log("logged in");
-      this.ifLogged = true;
+      this.ifLogged = "true";
     }
     else{
       console.log("logged out")
-      this.ifLogged = false;
+      this.ifLogged = "false";
     }
+
+    console.log(this.route.url);
+
   }
 
   logout(){

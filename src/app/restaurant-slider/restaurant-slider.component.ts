@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DragScrollComponent } from 'ngx-drag-scroll';
 
 @Component({
   selector: 'app-restaurant-slider',
@@ -8,67 +9,62 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class RestaurantSliderComponent implements OnInit {
 
+  @ViewChild('nav', {read: DragScrollComponent}) ds: DragScrollComponent;
+
   constructor(private http: HttpClient) { }
 
+  public thumb;
+  public menu_url;
+  public name;
+  public address;
+  public cuisines;
+  public timings;
   public allRestaurants: any;
-
-  public resturantSlider1 = [];
-  public resturantSlider2 = [];
-  public resturantSlider3 = [];
-  public resturantSlider4 = [];
-  public resturantSlider5 = [];
-
-  public restImgPath: string;
-  public restMenu_url: string;
+  public restaurantArray = []
 
   ngOnInit() {
-    this.getAllRestaurants().subscribe((data: any) => {
-      this.allRestaurants = data.restaurants;
-      var count = 0;
-      var i = 0;
-      this.allRestaurants.forEach(element => {
 
-        // console.log(element);
+    var count = 0;
 
-        if (count >= 0 && count <= 3) {
+    for(var i=0; i<200 && count <= 12;i++){
+      this.getAllRestaurants(i+1,i+20).subscribe((data : any) => {
 
-          this.resturantSlider1[i] = element.restaurant;
+        this.allRestaurants = data.restaurants;
 
-        } else if (count > 3 && count <= 7) {
+        this.allRestaurants.forEach(element =>{
+          if(element.restaurant.average_cost_for_two > 300 && element.restaurant.thumb != null)
+          {
+            this.restaurantArray.push(element.restaurant)
+            count++;
+          }
+        });
+        
+        console.log("printing")
+        this.restaurantArray.forEach(element => {
+          console.log(element)
+        })
 
-          this.resturantSlider2[i] = element.restaurant;
-
-        } else if (count > 7 && count <= 11) {
-
-          this.resturantSlider3[i] = element.restaurant;
-
-        } else if (count > 11 && count < 15) {
-
-          this.resturantSlider4[i] = element.restaurant;
-
-        } else if (count > 15 && count < 19) {
-
-          this.resturantSlider5[i] = element.restaurant;
-
-        }
-        i++;
-        count++;
-
-        if (i > 3) {
-          i = 0;
-        }
       });
-    });
+      i = i+20;
+    }
 
   }
 
+  moveLeft() {
+    this.ds.moveLeft();
+  }
+ 
+  moveRight() {
+    this.ds.moveRight();
+  }
+
   openView(restaurant) {
-    document.getElementById("viewRestaurant").style.display = "block";
-    this.restImgPath = restaurant.thumb;
-    this.restMenu_url = restaurant.menu_url;
-    document.getElementById("restName").innerHTML = restaurant.name;
-    document.getElementById("restAddress").innerHTML = restaurant.location.address;
-    document.getElementById("restCuisines").innerHTML = restaurant.cuisines;
+    this.thumb = restaurant.thumb;
+    this.menu_url = restaurant.menu_url;
+    this.name = restaurant.name;
+    this.address = restaurant.location.address;
+    this.cuisines = restaurant.cuisines;
+    this.timings = restaurant.timings;
 
   }
 
@@ -76,14 +72,15 @@ export class RestaurantSliderComponent implements OnInit {
     document.getElementById("viewRestaurant").style.display = "none";
   }
 
-  getAllRestaurants() {
+  getAllRestaurants(start, count) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'user-key': '30576d9b42f4f655ac73d7f1dcffdca9'
       })
     };
-    return this.http.get('https://developers.zomato.com/api/v2.1/search', httpOptions)
+    return this.http.get('https://developers.zomato.com/api/v2.1/search?start='+start+'&count='+count, httpOptions);
+    
   }
 
 }

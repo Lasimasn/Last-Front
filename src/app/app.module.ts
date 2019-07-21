@@ -20,6 +20,7 @@ import { ResturantProfileComponent } from './resturant-profile/resturant-profile
 import { CharityProfileComponent } from './charity-profile/charity-profile.component';
 import { AvailabilityformComponent } from './availabilityform/availabilityform.component';
 import { RestaurantprofileComponent } from './restaurantprofile/restaurantprofile.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 import { LoginService } from './login.service';
 import { SignupService } from './signup.service';
@@ -59,7 +60,8 @@ import { RouteMapComponent } from './route-map/route-map.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    DragScrollModule
   ],
   providers: [
     LoginService,
