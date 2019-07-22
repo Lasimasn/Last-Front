@@ -32,7 +32,7 @@ export class RestaurantSliderComponent implements OnInit {
         this.allRestaurants = data.restaurants;
 
         this.allRestaurants.forEach(element =>{
-          if(element.restaurant.average_cost_for_two > 300 && element.restaurant.thumb != null)
+          if(element.restaurant.average_cost_for_two > 300 && element.restaurant.thumb != "")
           {
             this.restaurantArray.push(element.restaurant)
             count++;
