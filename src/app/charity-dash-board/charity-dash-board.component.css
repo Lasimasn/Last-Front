@@ -155,3 +155,12 @@ it doesn’t make the test unnecessarily selective */
   top:2px;
   left:2px;
 }
+
+@media only screen and (max-width: 400px) {
+  .hd{
+      font-size: 40px;
+  }
+  .w3-display-middle{
+      padding-bottom: 100px;
+  }
+}

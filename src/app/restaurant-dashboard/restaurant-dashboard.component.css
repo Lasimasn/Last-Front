@@ -10,6 +10,8 @@
 @media only screen and (max-width: 400px) {
     .hd{
         font-size: 40px;
-        /* padding-top: 100px; */
+    }
+    .w3-display-middle{
+        padding-bottom: 300px;
     }
   }
