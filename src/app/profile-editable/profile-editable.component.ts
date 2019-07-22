@@ -11,7 +11,7 @@ import { DeliveryBoyProfile } from '../deliveryBoy-profile';
 })
 export class ProfileEditableComponent implements OnInit {
 ​
-  public username;
+  public username; 
   public role;
   public editable;
   public actor;
