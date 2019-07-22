@@ -6,8 +6,12 @@
 .hdSub{
     text-shadow: 1px 1px gray;
 }
+
 @media only screen and (max-width: 400px) {
-   .hd{
-       font-size: 20px;
-   }
+    .hd{
+        font-size: 40px;
+    }
+    .w3-display-middle{
+        padding-bottom: 300px;
+    }
   }

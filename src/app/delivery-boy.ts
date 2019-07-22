@@ -3,7 +3,7 @@ export class DeliveryBoy {
     password:string;
     email:string;
     role:string;
-    deliveryBoyName:string;
+    name:string;
     mobile:string;
     address:string;
     licenseNo:number;
