@@ -236,7 +236,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     opacity: 0.9;
     /* Full height */
     height: 100%; 
-    min-height: 700px;
+    min-height: auto;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
@@ -245,7 +245,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
   .register {
     /* The image used */
-    background-image: url("../img/ch.jpeg");
+    background-image: url("../img/back.jpg");
     opacity: 0.9;
     /* Full height */
     height: 100%; 
