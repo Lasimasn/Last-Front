@@ -8,27 +8,39 @@ import { DonationService } from '../donation.service';
 })
 export class RouteMapComponent implements OnInit {
 
-  constructor(
-    private service : DonationService
-  ) { }
   username : string
   deliveryRoute : any
+  public show:boolean = true;
+  public charityLogs = null;
+
+  constructor(private service : DonationService) { }
+  
   ngOnInit() {
     this.username = sessionStorage.getItem('username');
     console.log(this.username)
     this.service.fetchDeliveryBoyRoute(this.username).subscribe(data=>{
       console.log(data)
-      this.deliveryRoute=data;})
-  }
-  onPicked(restaurantUsername: string) {
-    this.service.saveRestaurantLogOnPicked(restaurantUsername).subscribe(data => {
-      console.log(data)
+      this.deliveryRoute=data;
+      this.service.fetchCharityLogs(this.deliveryRoute.logs.charities[0].username).subscribe(data => {
+        console.log(data)
+        this.charityLogs = data;
+      })
     })
+
+      
   }
+  
+  toggle() {
+    this.show = !this.show;
+  }
+
   onDelivered(charityUsername: string) {
     this.service.saveCharityLogOnDelivered(charityUsername).subscribe(data => {
       console.log(data)
+      this.toggle();
     })
   }
+  
+  
  }
  
