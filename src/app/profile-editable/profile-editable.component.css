@@ -21,3 +21,15 @@
 .b1 {
   margin-right: 15px;
 }
+label{
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 400px) {
+  label{
+      font-size: 10px;
+  }
+  .here {
+      font-size: 10px;
+  }
+}

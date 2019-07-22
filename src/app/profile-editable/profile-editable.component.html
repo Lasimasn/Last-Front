@@ -1,11 +1,11 @@
 <div class="container py-5 my-5">
   <div class="row">
-      <div class="col-md-9">
-          <div class="card" style="justify-content: center pull-right">
+      <div class="col-md-12">
+          <div class="card" style="background-color:#e7e4e4">
               <div class="card-body">
                   <div class="row">
                       <div class="col-md-12">
-                          <h4>Profile</h4>
+                          <h1><b>Profile</b></h1>
                           <hr>
                       </div>
                   </div>
@@ -15,7 +15,7 @@
                   <div class="row">
                     <div class="w3-bar">
                       <div class="w3-bar-item w3-right">
-                        <img name="pencil" class="pencil"   (click)="edit()" src="../../assets/img/pen.png" height="30px" />
+                        <img name="pencil" class="pencil"   (click)="edit()" src="../../assets/img/pen.png" height="35px" />
                       </div>
                     </div>
                   </div>
@@ -55,7 +55,7 @@
                       </div>
                       <div *ngIf="role == 'charity'">
                           <div class="form-group row">
-                              <label class="col-4 col-form-label">Food Requirement</label> 
+                              <label class="col-4 col-form-label">Food Req.</label> 
                               <div class="col-8">
                                 <label>{{actor.foodRequirement}}</label>
                               </div>
