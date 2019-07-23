@@ -10,12 +10,12 @@
  }
  .bg {
   /* The image used */
-  background-image: url("../../assets/img/download.jpg");
+  background-image: url("../../assets/img/road.jpeg");
   opacity:1.0;
   /* Full height */
   height: 100%;
   margin-top: 70px;
-  min-height: 700px;
+  min-height: 800px;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -100,4 +100,7 @@ input:checked + .slider:before {
 
 .slider round {
   background: black;
+}
+td,th{
+  border: none;
 }
