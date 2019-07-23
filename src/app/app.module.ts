@@ -26,6 +26,7 @@ import { CharitySliderComponent } from './charity-slider/charity-slider.componen
 import { RestaurantSliderComponent } from './restaurant-slider/restaurant-slider.component';
 import { RestaurantLogsComponent } from './restaurant-logs/restaurant-logs.component';
 import { RouteMapComponent } from './route-map/route-map.component';
+import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { RouteMapComponent } from './route-map/route-map.component';
     CharitySliderComponent,
     RestaurantSliderComponent,
     RestaurantLogsComponent,
-    RouteMapComponent
+    RouteMapComponent,
+    RestaurantCardComponent
   ],
   imports: [
     BrowserModule,

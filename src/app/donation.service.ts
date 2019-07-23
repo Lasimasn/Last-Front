@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Rating } from './rating';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -73,10 +74,13 @@ saveDeliveryBoy(deliveryBoy){
    return this.http.get<any>(url);
   }
 
-  saveRestaurantLogOnPicked(username){
-    var url= `http://localhost:8090/api/v1/restaurant-logs/`;
+  saveRestaurantLogOnPicked(username):Observable<any>{
+    var url= `http://localhost:8000/restaurant-logs-service/api/v1/restaurant-logs`;
     console.log("Saving Restaurant Log With Username : ", username);
-    return this.http.post<any>(url,username);
+    // var some = 
+    // console.log(some)
+    console.log("auiua")
+    return this.http.post<any>(url,username) ;
    }
 
   saveCharityLogOnDelivered(username){
@@ -90,4 +94,8 @@ saveDeliveryBoy(deliveryBoy){
     console.log("Saving Charity Log With Username : ", rating);
     return this.http.post<any>(url,rating);
    }
+
+  //  handleError(error) {
+  //   // your custom error handling logic    
+  // }
 }

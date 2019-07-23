@@ -43,7 +43,7 @@
             <img src="../../assets/img/turkey.png" height="20px" />&nbsp;&nbsp;Non Veg =&nbsp; 	
             <img src="../../assets/img/weighing-scale.png" height="20px" />&nbsp;40</h6> 
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <h5><span style="border-bottom: 2px solid yellow;font-weight: bold">Delivery</span> <span class="w3-text-yellow"> Boy</span></h5>
             <h6>
               <img src="../../assets/img/scooter.png" height="20px" />&nbsp;&nbsp;{{item.charityStatus.deliveryBoyName}}
@@ -51,30 +51,23 @@
               <i class="fa fa-phone w3-text-yellow"></i>&nbsp;&nbsp;{{item.charityStatus.mobile}}
             </h6>
         </div>
-        <div class="col-md-3">
-          <h5><span style="border-bottom: 2px solid yellow;font-weight: bold">Rating</span></h5>
-                <div class="form-group">
-                  <!-- <div class="rating">
-                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                    <input style="width: 60%; font-size: 20px;" type="number" #ratedValue name="submit" placeholder="Enter rating">
-                    </div> -->
-                    <div class="rating" style="text-align: center">
-                      <input type="radio" id="star5" name="rating" value="5" #ratedValue (click)="onRate(ratedValue.value,id)" /><label for="star5" title="Rocks!">5 stars</label>
-                      <input type="radio" id="star4" name="rating" value="4" #ratedValue (click)="onRate()" /><label for="star4" title="Pretty good">4 stars</label>
-                      <input type="radio" id="star3" name="rating" value="3" #ratedValue (click)="onRate()" /><label for="star3" title="Meh">3 star</label>
-                      <input type="radio" id="star2" name="rating" value="2" #ratedValue (click)="onRate()" /><label for="star2" title="Kinda bad">2 stars</label>
-                      <input type="radio" id="star1" name="rating" value="1" #ratedValue (click)="onRate()" /><label for="star1" title="Sucks big time">1 star</label>
-                       
-                    <!-- <star-rating [starType]="'icon'" [rating]="3.5"></star-rating> -->
-                  </div>
+        <div class="col-md-4">
+          <div *ngIf="item.rating == 0">
+              <h5><span style="border-bottom: 2px solid #ffff00;font-weight: bold">Rating</span></h5>
+              <div class="form-group">
+                  <div class="rating" style="text-align: center">
+                    <input type="radio" id="star5" name="rating" value=5 #rated5 (click)="onRate(rated5.value, item.id)" /><label for="star5" title="Rocks!">5 stars</label>
+                    <input type="radio" id="star4" name="rating" value=4 #rated4 (click)="onRate(rated4.value, item.id)" /><label for="star4" title="Pretty good">4 stars</label>
+                    <input type="radio" id="star3" name="rating" value=3 #rated3 (click)="onRate(rated3.value, item.id)" ><label for="star3" title="Meh">3 star</label>
+                    <input type="radio" id="star2" name="rating" value=2 #rated2 (click)="onRate(rated2.value, item.id)" /><label for="star2" title="Kinda bad">2 stars</label>
+                    <input type="radio" id="star1" name="rating" value=1 #rated1 (click)="onRate(rated1.value, item.id)" /><label for="star1" title="Sucks big time">1 star</label> 
                 </div>
-            <!-- <div class="form-group">
-              <label>Review</label>
-              <textarea class="form-control"></textarea>
-            </div> -->
-            <!-- <div class="form-group">
-              <button type="submit" class="btn btn-success btn-lg" (click)="onRate(ratedValue.value,item.id)">Rate</button>
-            </div> -->
+              </div>
+          </div>
+          <div *ngIf="item.rating != 0">
+            <h5><span style="border-bottom: 2px solid #ffff00;font-weight: bold">Rating</span></h5>
+            <h4><img src="../../assets/img/starYellow.png" height="20px" />&nbsp;{{item.rating}}</h4>
+          </div>
       </div>
      </div>
     </div>

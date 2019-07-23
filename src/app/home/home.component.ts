@@ -21,10 +21,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
   restaurantSetRole(){
-    this.role="restaurant";
+    this.role='restaurant';
   }
   charitySetRole(){
-    this.role="charity";
+    this.role='charity';
   }
 
  

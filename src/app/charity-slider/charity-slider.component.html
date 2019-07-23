@@ -10,7 +10,7 @@
   <div class="col-10">
     <drag-scroll #nav>
       <div class="w3-card-4 p-3 mx-2" drag-scroll-item  *ngFor="let item of charityArray">
-        <div class="text-center">
+        <div class="text-center w3-white">
           <img class="img-thumbnail" style="width: 200px; height: 200px" data-toggle="modal" data-target="#viewCharity"  (click)="openView(item)" src="{{item.img_url}}"><br>
           <label class="font-weight-bold" style="font-size: 15px">{{item.charity_name}}</label>
         </div>
