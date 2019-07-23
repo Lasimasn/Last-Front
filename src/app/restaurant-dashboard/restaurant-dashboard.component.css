@@ -6,7 +6,9 @@
 .hdSub{
     text-shadow: 1px 1px gray;
 }
-
+.form-group{
+    font-size: 22px;
+}
 @media only screen and (max-width: 400px) {
     .hd{
         font-size: 40px;
