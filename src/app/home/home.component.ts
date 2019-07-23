@@ -36,14 +36,17 @@ export class HomeComponent implements OnInit {
       this.restaurant = new Restaurant(this.user.username, this.user.password, this.user.email, this.role,"", "", "", "", "","");
       this.service.signupRestaurant(this.restaurant).subscribe(data =>{
       console.log(data);
-      this.route.navigateByUrl("/Login");
+      // $("#myModal").modal("hide");
+      document.getElementById('signUp').style.display='none'
+      // this.route.navigateByUrl("/Login");
       });
     }
     else if(this.role == "charity"){
       this.charity = new Charity(this.user.username, this.user.password, this.user.email, this.role,"", "", "", "", "", "","");
       this.service.signupCharity(this.charity).subscribe(data =>{
       console.log(data);
-      this.route.navigateByUrl("/Login");
+      document.getElementById('signUp').style.display='none'
+      // this.route.navigateByUrl("/Login");
       });
     }
     
